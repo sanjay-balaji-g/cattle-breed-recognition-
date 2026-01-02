@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cattle Breed Detection</title>
+</head>
+<body>
+  <h2>Upload an Image for Breed Detection</h2>
+  <input type="file" id="fileInput" />
+  <button onclick="uploadImage()">Upload</button>
+  <br><br>
+  <img id="result" style="max-width:500px;" />
+
+  <script>
+    async function uploadImage() {
+      const file = document.getElementById("fileInput").files[0];
+      if (!file) {
+        alert("Please select a file first!");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const response = await fetch("http://127.0.0.1:5000/predict", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+      if (data.image) {
+        document.getElementById("result").src ='data:image/jpeg;base64,${data.image}';
+      } else {
+        alert("Error: " + JSON.stringify(data));
+      }
+    }
+  </script>
+</body>
+</html>
