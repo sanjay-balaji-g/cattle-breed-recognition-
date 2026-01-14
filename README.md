@@ -140,16 +140,3 @@ http://127.0.0.1:5000
 
 ---
 
-## 👨‍💻 Author
-
-Developed for academic and experimental purposes in **Computer Vision & Deep Learning**.
-
----
-
-## 📜 License
-
-This project is open-source and free to use for educational purposes.
-
----
-
-⭐ If you like this project, consider giving it a star!
